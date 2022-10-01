@@ -33,7 +33,7 @@ namespace GameAccount
             string action = Console.ReadLine();
             if (action.Length == 0)
             {
-                Console.WriteLine("The end of the game \nYour score\n Rating :"+me.CurrentRating +"\nGames played :"+me.GameCount);
+                Console.WriteLine("The end of the game \nYour score\nRating :"+me.CurrentRating +"\nGames played :"+me.GameCount);
             }
             else
             {
