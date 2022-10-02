@@ -36,5 +36,14 @@
         {
             return ("UserName:"+UN+"\nOponentName :"+ON+ "\nRate :" + CR + "\nGame :" + GC);
         }
+        public static void ShowStats(List<string> list)
+        {
+            Console.WriteLine("All  games stats:\n");
+            foreach (string item in list)
+            {
+                Console.WriteLine(item + "\n");
+
+            }
+        }
     }
 }
