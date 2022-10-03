@@ -19,18 +19,25 @@
         }
         public void GameWin(int CurrentRating, int GameCount, string OponentName)
         {
-            Console.WriteLine("!_!_!VICTORY!_!_!");
             this.CurrentRating += 10;
-            Console.WriteLine(OponentName+" lost\n Your rate " + this.CurrentRating);
             this.GameCount++;
+        }
+        public void GameWinPrint(string OponentName, int CurrentRating)
+        {
+            Console.WriteLine("!_!_!VICTORY!_!_!");
+            Console.WriteLine(OponentName + " lost\n Your rate " + this.CurrentRating);
         }
         public void GameLoose(int CurrentRating, int GameCount, string OponentName)
         {
-            Console.WriteLine("._._.WASTED!_._.");
+            
             if (CurrentRating <= 0) { CurrentRating = 0; }
             else { this.CurrentRating -= 10; }
-            Console.WriteLine(OponentName + " won\n Your rate " + this.CurrentRating);
             this.GameCount++;
+        }
+        public void GameLoosePrint(string OponentName, int CurrentRating)
+        {
+            Console.WriteLine("._._.WASTED!_._.");
+            Console.WriteLine(OponentName + " won\n Your rate " + this.CurrentRating);
         }
         public string toString(string UN, string ON, string CR, string GC)
         {
