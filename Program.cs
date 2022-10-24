@@ -17,10 +17,6 @@ namespace GameAccount
                 GameAccount.ShowStats(me.list);
                 GameAccount.ShowStats(oponent.list);
             }
-
         } 
-        
-        
     }
-   
 }
