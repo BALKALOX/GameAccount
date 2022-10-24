@@ -1,6 +1,6 @@
 ﻿namespace GameAccount
 {
-    public class Game
+    public abstract class Game
     {
         public static void Gamee(GameAccount me, GameAccount oponent)
         {
