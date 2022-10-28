@@ -17,7 +17,7 @@
             this.GameCount = 0;
             this.list = new List<string>();
         }
-        public void GameWin(int CurrentRating, int GameCount, string OponentName)
+        public virtual void GameWin(int CurrentRating, int GameCount, string OponentName)
         {
             this.CurrentRating += 10;
             this.GameCount++;
@@ -27,10 +27,10 @@
             Console.WriteLine("!_!_!VICTORY!_!_!");
             Console.WriteLine(OponentName + " lost\n Your rate " + this.CurrentRating);
         }
-        public void GameLoose(int CurrentRating, int GameCount, string OponentName)
+        public virtual void GameLoose(int CurrentRating, int GameCount, string OponentName)
         {
             
-            if (CurrentRating <= 0) { CurrentRating = 0; }
+            if (CurrentRating <= 0) { this.CurrentRating = 0; }
             else { this.CurrentRating -= 10; }
             this.GameCount++;
         }
