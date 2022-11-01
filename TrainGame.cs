@@ -1,6 +1,6 @@
 ﻿namespace GameAccount
 {
-    public class TrainGame:Game
+    public class TrainGame:BaseGame
     {
         public static void Gamee(GameAccount me, GameAccount oponent)
         {

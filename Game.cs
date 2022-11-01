@@ -2,7 +2,7 @@
 
 namespace GameAccount
 {
-    public abstract class Game
+    public class Game : BaseGame
     {
         public static void Gamee(GameAccount me, GameAccount oponent)
         {

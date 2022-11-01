@@ -1,6 +1,6 @@
 ﻿namespace GameAccount
 {
-    public class OnePlayerPlaysOnRate : Game
+    public class OnePlayerPlaysOnRate : BaseGame
     {
         public static void Gamee(GameAccount me, GameAccount oponent)
         {
