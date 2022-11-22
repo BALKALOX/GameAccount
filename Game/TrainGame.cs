@@ -2,7 +2,7 @@
 {
     public class TrainGame:BaseGame
     {
-        public static void Gamee(GameAccount me, GameAccount oponent)
+        public override void Play(GameAccount me, GameAccount oponent)
         {
             Random rnd = new Random();
             me.num = rnd.Next();
@@ -14,9 +14,9 @@
             //ListAdd(me, oponent);
             string action = Console.ReadLine();
             if (action.Length == 0)
-                Console.WriteLine("The end of the game \nYour score\nRating :" + me.CurrentRating + "\nGames played :" + me.GameCount);
+                Console.WriteLine("The end of the game \nYour score\nRating :" + me.currentRating + "\nGames played :" + me.gameCount);
             else
-                Gamee(me, oponent);
+                Play(me, oponent);
         }
         public static void Win(GameAccount me,GameAccount oponent)
         {
