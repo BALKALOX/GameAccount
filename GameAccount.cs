@@ -2,46 +2,46 @@
 {
     public class GameAccount
     {
-        public string UserName;
-        public string OponentName;
-        public int CurrentRating;
-        public int GameCount;
+        public string userName;
+        public string oponentName;
+        public int currentRating;
+        public int gameCount;
         public int num;
         public List<string> list;
 
-        public GameAccount(string UN, string ON)
+        public GameAccount(string userName, string oponentName)
         {
-            this.OponentName = ON;
-            this.UserName = UN;
-            this.CurrentRating = 0;
-            this.GameCount = 0;
+            this.oponentName = oponentName;
+            this.userName = userName;
+            this.currentRating = 0;
+            this.gameCount = 0;
             this.list = new List<string>();
         }
-        public void GameWin(int CurrentRating, int GameCount, string OponentName)
+        public void GameWin(int currentRating, int gameCount)
         {
-            this.CurrentRating += 10;
-            this.GameCount++;
+            this.currentRating += 10;
+            this.gameCount++;
         }
-        public void GameWinPrint(string OponentName, int CurrentRating)
+        public void GameWinPrint(string oponentName, int currentRating)
         {
             Console.WriteLine("!_!_!VICTORY!_!_!");
-            Console.WriteLine(OponentName + " lost\n Your rate " + this.CurrentRating);
+            Console.WriteLine(oponentName + " lost\n Your rate " + this.currentRating);
         }
-        public void GameLoose(int CurrentRating, int GameCount, string OponentName)
+        public void GameLoose(int currentRating, int gameCount)
         {
             
-            if (CurrentRating <= 0) { CurrentRating = 0; }
-            else { this.CurrentRating -= 10; }
-            this.GameCount++;
+            if (currentRating <= 0) { currentRating = 0; }
+            else { this.currentRating -= 10; }
+            this.gameCount++;
         }
-        public void GameLoosePrint(string OponentName, int CurrentRating)
+        public void GameLoosePrint(string oponentName, int currentRating)
         {
             Console.WriteLine("._._.WASTED!_._.");
-            Console.WriteLine(OponentName + " won\n Your rate " + this.CurrentRating);
+            Console.WriteLine(oponentName + " won\n Your rate " + this.currentRating);
         }
-        public string toString(string UN, string ON, string CR, string GC)
+        public string toString(string userName, string oponentName, string currentRating, string gameCount)
         {
-            return ("UserName:"+UN+"\nOponentName :"+ON+ "\nRate :" + CR + "\nGame :" + GC);
+            return ("UserName:"+ userName + "\nOponentName :"+ oponentName + "\nRate :" + currentRating + "\nGame :" + gameCount);
         }
         public static void ShowStats(List<string> list)
         {

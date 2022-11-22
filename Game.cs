@@ -9,22 +9,22 @@
             oponent.num = rnd.Next();
             if (me.num > oponent.num)
             {
-                me.GameWin(me.CurrentRating, me.GameCount, me.OponentName);
-                me.GameWinPrint(me.OponentName,me.CurrentRating);
-                oponent.GameLoose(oponent.CurrentRating, oponent.GameCount, oponent.OponentName);
+                me.GameWin(me.currentRating, me.gameCount);
+                me.GameWinPrint(me.oponentName, me.currentRating);
+                oponent.GameLoose(oponent.currentRating, oponent.gameCount);
             }
             else
             {
-                me.GameLoose(me.CurrentRating, me.GameCount, me.OponentName);
-                me.GameLoosePrint(me.OponentName, me.CurrentRating);
-                oponent.GameWin(oponent.CurrentRating, oponent.GameCount, oponent.OponentName);
+                me.GameLoose(me.currentRating, me.gameCount);
+                me.GameLoosePrint(me.oponentName, me.currentRating);
+                oponent.GameWin(oponent.currentRating, oponent.gameCount);
             }
-            me.list.Add(me.toString(me.UserName, me.OponentName, me.CurrentRating.ToString(), me.GameCount.ToString()));
-            oponent.list.Add(oponent.toString(oponent.UserName, oponent.OponentName, oponent.CurrentRating.ToString(), oponent.GameCount.ToString()));
+            me.list.Add(me.toString(me.userName, me.oponentName, me.currentRating.ToString(), me.gameCount.ToString()));
+            oponent.list.Add(oponent.toString(oponent.userName, oponent.oponentName, oponent.currentRating.ToString(), oponent.gameCount.ToString()));
             string action = Console.ReadLine();
             if (action.Length == 0)
             {
-                Console.WriteLine("The end of the game \nYour score\nRating :" + me.CurrentRating + "\nGames played :" + me.GameCount);
+                Console.WriteLine("The end of the game \nYour score\nRating :" + me.currentRating + "\nGames played :" + me.gameCount);
             }
             else
             {
