@@ -3,7 +3,7 @@
     public class SeriaOfVictoriesGameAccount : GameAccount
     {
         private int seriaOfVictories;
-        public SeriaOfVictoriesGameAccount(string userName, string oponentName) : base(userName, oponentName)
+        public SeriaOfVictoriesGameAccount(string userName, string oponentName, bool b) : base(userName, oponentName, b)
         {
             this.seriaOfVictories = 0;
             this.oponentName = oponentName;
@@ -11,6 +11,8 @@
             this.currentRating = 0;
             this.gameCount = 0;
             this.list = new List<string>();
+            if (b) this.role = 'x';
+            else this.role = '0';
         }
         public void IncreaseSeriaOfVictories()
         {

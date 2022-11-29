@@ -8,14 +8,18 @@
         public int gameCount;
         public int num;
         public List<string> list;
+        public char role;
 
-        public GameAccount(string userName, string oponentName)
+        public GameAccount(string userName, string oponentName, bool b)
         {
             this.oponentName = oponentName;
             this.userName = userName;
             this.currentRating = 0;
             this.gameCount = 0;
             this.list = new List<string>();
+            if (b)
+                this.role = 'x';
+            else this.role = '0';
         }
         public virtual void GameWin(int currentRating, int gameCount)
         {
