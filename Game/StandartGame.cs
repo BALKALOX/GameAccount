@@ -35,7 +35,7 @@ namespace GameAccount
                     PrintGameField();
                     if (end == true)
                     {
-                        Win(cross, zero);
+                        Win( zero, cross);
                         break;
                     }
                     break;
@@ -44,7 +44,7 @@ namespace GameAccount
         }
         public virtual void Check()
         {
-            if(DiagonalCheck()) end = true; 
+            if(MainDiagonalCheck() | DiagonalCheck()) end = true; 
             for(int i = 0; i < 3; i++)
             {
                 if (RowCheck(i) | ColumnCheck(i))
@@ -53,13 +53,17 @@ namespace GameAccount
                 }
             }
         }
-        public virtual bool DiagonalCheck()
+        public virtual bool MainDiagonalCheck()
         {
             for(int i = 0; i < 2; i++)
             {
                 if (gameField[i, i] == gameField[i + 1, i + 1] & gameField[i, i] != ' ') continue;
                 else return false;
             }
+            return true;
+        }
+        public virtual bool DiagonalCheck()
+        {
             int j =2;
             for (int i = 0; i < 2; i++,j--)
             {
@@ -81,23 +85,30 @@ namespace GameAccount
         {
             for(int j=0;j<2;j++)
             {
-                if ((gameField[j, i] == gameField[j + 1, i]) & (gameField[i, j] != ' ')) continue;
+                if ((gameField[j, i] == gameField[j + 1, i]) & (gameField[j, i] != ' ')) continue;
                 else return false;
             }
             return true;
         }
         public virtual void Step(GameAccount player)
         {
-            if(stepCounter < 9)
+            Console.WriteLine(player.userName + ", select the position of a cell");
+            int i = Convert.ToInt32(Console.ReadLine());
+            if ((i >2) | (i < 0)) 
             {
-                Console.WriteLine(player.userName + ", select the position of a cell");
-                int i = Convert.ToInt32(Console.ReadLine());
-                int j = Convert.ToInt32(Console.ReadLine());
-                if (gameField[i, j] == ' ')
-                    gameField[i, j] = player.role;
-                else { Console.WriteLine("The position is occupied"); Step(player); }
-                Check();
+                Console.WriteLine("Uncorrect index of cell");
+                Step(player); 
             }
+            int j = Convert.ToInt32(Console.ReadLine());
+            if ((j > 2) | (j < 0))
+            {
+                Console.WriteLine("Uncorrect index of cell");
+                Step(player);
+            }
+            if (gameField[i, j] == ' ')
+                gameField[i, j] = player.role;
+            else { Console.WriteLine("The position is occupied"); Step(player); }
+            Check();
             this.stepCounter++;
             if(stepCounter == 9)
             {
@@ -125,19 +136,19 @@ namespace GameAccount
                 for(int j = 0; j < 3; j++)
                     gameField[i,j] = ' ';
         }
-        public virtual void Win(GameAccount cross, GameAccount zero)
+        public virtual void Win(GameAccount player1, GameAccount player2)
         {
-            cross.GameWin(cross.currentRating, cross.gameCount);
-            cross.GameWinPrint(cross.oponentName, cross.currentRating);
-            zero.GameLoose(zero.currentRating, zero.gameCount);
-            ListAdd(cross, zero);
+            player1.GameWin(player1.currentRating, player1.gameCount);
+            player1.GameWinPrint(player1.oponentName, player1.currentRating);
+            player2.GameLoose(player2.currentRating, player2.gameCount);
+            ListAdd(player1, player2);
         }
-        public virtual void Loose(GameAccount cross, GameAccount zero)
+        public virtual void Loose(GameAccount player1, GameAccount player2)
         {
-            cross.GameLoose(cross.currentRating, cross.gameCount);
-            cross.GameLoosePrint(cross.oponentName, cross.currentRating);
-            zero.GameWin(zero.currentRating, zero.gameCount);
-            ListAdd(cross, zero);
+            player1.GameLoose(player1.currentRating, player1.gameCount);
+            player1.GameLoosePrint(player1.oponentName, player1.currentRating);
+            player2.GameWin(player2.currentRating, player2.gameCount);
+            ListAdd(player1, player2);
         }
         public virtual void ListAdd(GameAccount cross, GameAccount zero)
         {

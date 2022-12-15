@@ -29,7 +29,7 @@
         public void GameWinPrint(string oponentName, int currentRating)
         {
             Console.WriteLine("!_!_!VICTORY!_!_!");
-            Console.WriteLine(oponentName + " lost\n Your rate " + this.currentRating);
+            Console.WriteLine(oponentName + " lost\n Your rate " + currentRating);
         }
         public virtual void GameLoose(int currentRating, int gameCount)
         {
@@ -41,7 +41,7 @@
         public void GameLoosePrint(string oponentName, int currentRating)
         {
             Console.WriteLine("._._.WASTED!_._.");
-            Console.WriteLine(oponentName + " won\n Your rate " + this.currentRating);
+            Console.WriteLine(oponentName + " won\n Your rate " + currentRating);
         }
         public string toString(string userName, string oponentName, string currentRate, string gameCount)
         {
